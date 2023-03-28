@@ -1,0 +1,88 @@
+ version: 2
+
+sources:
+  - name: google_sheets
+    description: "datos extraidos de una hoja de calculo, en el que se obtienen las ventas"
+    database: dev_bronze_db_victor
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+
+
+    tables:
+      - name: fivetran_audit
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: message
+            description: ""
+          - name: update_started
+            description: ""
+          - name: update_id
+            description: ""
+          - name: schema
+            description: ""
+          - name: table
+            description: ""
+          - name: start
+            description: ""
+          - name: done
+            description: ""
+          - name: rows_updated_or_inserted
+            description: ""
+          - name: status
+            description: ""
+          - name: progress
+            description: ""
+          - name: _fivetran_synced
+            description: ""
+
+      - name: ventasnoviembre
+        description: ""
+        columns:
+          - name: _row
+            description: "n de filas"
+            tests:
+              - unique
+              - not_null
+              
+          - name: articulo
+            description: "referencia del articulo"
+            tests:
+              - not_null
+          - name: fecha
+            description: "fecha de compra"
+          - name: marca
+            description: "marca a la que pertenece el articulo vendido"
+            tests:
+              - not_null
+          - name: familia
+            description: "familia a la que pertenece el articulo"
+            tests:
+              - not_null
+          - name: seccion
+            description: "seccion(complemento, textil o calzado a la que pertenece el articulo"
+            tests:
+              - not_null
+          - name: color
+            description: "color al que pertenece el articulo"
+          - name: cant_
+            description: "cantidad vendida por articulo"
+          - name: venta
+            description: "venta total de cada articulo"
+          - name: genero
+            description: "genero al que pertenece el articulo"
+            tests:
+              - not_null
+          - name: descripcion
+            description: "descripcion del articulo"
+          - name: cliente
+            description: "tienda fisica a la que estamos extrayendo los datos de venta"
+            tests:
+              - not_null
+          - name: _fivetran_synced
+            description: ""
