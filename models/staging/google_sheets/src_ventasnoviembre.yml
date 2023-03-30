@@ -1,9 +1,9 @@
- version: 2
+version: 2
 
 sources:
   - name: google_sheets
     description: "datos extraidos de una hoja de calculo, en el que se obtienen las ventas"
-    database: dev_bronze_db_victor
+    schema: google_sheets
 
     quoting:
       database: false

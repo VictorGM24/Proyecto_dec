@@ -1,10 +1,13 @@
-with
-    familia as (select * from {{ ref('base_stg_familia') }}),
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-        dim_familia as (
-        select*
+dim_familia as (
 
-         from familia
-    )
+    select 
+        md5(replace (familia, ' ', '')) as id_familia,
+        familia
 
-    select * from dim_familia
+        from src_ventasnoviembre
+)
+
+select * from dim_familia

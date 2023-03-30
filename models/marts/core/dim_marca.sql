@@ -1,10 +1,14 @@
-with
-    marca as (select * from {{ ref('base_stg_marca') }}),
 
-        dim_marca as (
-        select*
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-         from marca
-    )
+dim_marca as (
 
-    select * from dim_marca
+    select 
+        md5(replace (marca, ' ', '')) as id_marca,
+        marca
+
+        from src_ventasnoviembre
+)
+
+select * from dim_marca

@@ -1,10 +1,13 @@
-with
-    fecha as (select * from {{ ref('base_stg_fecha') }}),
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-        dim_fecha as (
-        select*
+dim_fecha as (
 
-         from fecha
-    )
+    select 
+        md5(replace (fecha, ' ', '')) as id_fecha,
+        fecha
 
-    select * from dim_fecha
+        from src_ventasnoviembre
+)
+
+select * from dim_fecha

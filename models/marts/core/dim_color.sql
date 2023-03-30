@@ -1,10 +1,13 @@
-with
-    color as (select * from {{ ref('base_stg_color') }}),
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-        dim_color as (
-        select*
+dim_color as (
 
-         from color
-    )
+    select 
+        md5(replace (color, ' ', '')) as id_color,
+        color
 
-    select * from dim_color
+        from src_ventasnoviembre
+)
+
+select * from dim_color

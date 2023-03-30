@@ -1,10 +1,13 @@
-with
-    articulo as (select * from {{ ref('base_stg_articulo') }}),
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-        dim_articulo as (
-        select*
+dim_articulo as (
 
-         from articulo
-    )
+    select 
+        md5(replace (articulo, ' ', '')) as id_articulo,
+        articulo
 
-    select * from dim_articulo
+        from src_ventasnoviembre
+)
+
+select * from dim_articulo

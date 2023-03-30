@@ -1,10 +1,13 @@
-with
-    genero as (select * from {{ ref('base_stg_genero') }}),
+WITH 
+src_ventasnoviembre AS (  SELECT * FROM {{ source('google_sheets','ventasnoviembre') }}),
 
-        dim_genero as (
-        select*
+dim_genero as (
 
-         from genero
-    )
+    select 
+        md5(replace (genero, ' ', '')) as id_genero,
+        genero
 
-    select * from dim_genero
+        from src_ventasnoviembre
+)
+
+select * from dim_genero
