@@ -6,7 +6,6 @@ dim_fecha as (
     select 
         md5(replace (fecha, ' ', '')) as id_fecha,
         fecha
-
         from src_ventasnoviembre
 )
 

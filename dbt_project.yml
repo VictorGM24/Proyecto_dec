@@ -57,5 +57,6 @@ models:
        {%- endif -%}
      core:
        +schema: core
+       +schema: marca
 
         
