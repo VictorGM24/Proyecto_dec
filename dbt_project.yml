@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'dbt_project'
 version: '1.0.0'
 config-version: 2
 
@@ -32,7 +32,36 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_new_project:
+  +transient: false
+  dbt_project:
     # Applies to all files under models/example/
-    example:
-      materialized: view
+
+   staging:
+     +materialized: view
+     +database: |  
+       {%- if  target.name == 'user_dev' -%} dev_silver_db_victor
+       {%- elif target.name == 'ci' -%} dev_silver_db_victor
+       {%- elif target.name == 'pro'-%} pro_silver_db_victor  
+       {%- else -%} {{target.database}} _silver_db_victor
+       {%- endif -%}
+     google_sheets:
+       +schema: google_sheets
+
+   marts:
+     +materialized: table
+     +database: |  
+       {%- if  target.name == 'user_dev' -%} dev_gold_db_victor  
+       {%- elif target.name == 'ci' -%} dev_gold_db_victor 
+       {%- elif target.name == 'pro'-%} pro_gold_db_victor 
+       {%- else -%} {{target.database}} _gold_db_victor 
+       {%- endif -%}
+     core:
+       +schema: core
+     marca:
+       +schema: marca
+     seccion: 
+       +schema: seccion
+     genero: 
+       +schema: genero
+
+        

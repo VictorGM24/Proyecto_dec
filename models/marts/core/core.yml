@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: fct_ventas
+    description: "tabla de hechos con ventas, cantidad y identifacadores unicos"
+    columns:
+      - name: id_cliente
+        description: ""
+
+      - name: id_articulo
+        description: ""
+
+      - name: id_color
+        description: ""
+
+      - name: id_marca
+        description: ""
+
+      - name: id_familia
+        description: ""
+
+      - name: id_seccion
+        description: ""
+
+      - name: id_descripcion
+        description: "identificador unico "
+
+      - name: cantidad
+        description: ""
+
+      - name: venta
+        description: ""
+
+      - name: id_fecha
+        description: ""
+
+  - name: dim_articulo
+    description: ""
+    columns:
+      - name: id_articulo
+        description: "identificador unico de articulo"
+
+      - name: articulo
+        description: ""
+
+  - name: dim_cliente
+    description: ""
+    columns:
+      - name: id_cliente
+        description: "identificador unico de cliente"
+
+      - name: cliente
+        description: ""
+      
+  - name: dim_color
+    description: ""
+    columns:
+      - name: id_color
+        description: "identificador unico de color"
+
+      - name: color
+        description: ""
+
+  - name: dim_marca
+    description: ""
+    columns:
+      - name: id_marca
+        description: "identificador unico de marca"
+
+      - name: marca
+        description: ""
+
+  - name: dim_familia
+    description: ""
+    columns:
+      - name: id_familia
+        description: "identificador unico de familia"
+
+      - name: familia
+        description: ""
+
+  - name: dim_seccion
+    description: ""
+    columns:
+      - name: id_seccion
+        description: "identificador unico de seccion"
+
+      - name: seccion
+        description: ""
+    
+  - name: dim_genero
+    description: ""
+    columns:
+      - name: id_genero
+        description: "identificador unico de genero"
+
+      - name: genero
+        description: "genero"
+
+  - name: dim_descripcion
+    description: ""
+    columns:
+      - name: id_descricion
+        description: "identificador unico de descripcion"
+
+      - name: descripcion
+        description: "descripcion del articulo"
+
+  - name: cantidad
+    description: ""
+    columns:
+      - name: cantidad
+        description: "cantidad de articulos vendidos"
+
+  - name: venta
+    description: ""
+    columns:
+      - name: venta
+        description: "venta total"
+
+  - name: dim_fecha
+    description: ""
+    columns:
+      - name: id_fecha
+        description: "identificador unico de fecha"
+
+      - name: fecha
+        description: ""

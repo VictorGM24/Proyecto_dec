@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_ventasnoviembre
+    description: ""
+    columns:
+      - name: _row
+        description: ""
+
+      - name: articulo
+        description: ""
+
+      - name: fecha
+        description: ""
+
+      - name: marca
+        description: ""
+
+      - name: familia
+        description: ""
+
+      - name: seccion
+        description: ""
+
+      - name: color
+        description: ""
+
+      - name: cant_
+        description: ""
+
+      - name: venta
+        description: ""
+
+      - name: genero
+        description: ""
+
+      - name: descripcion
+        description: ""
+
+      - name: cliente
+        description: ""

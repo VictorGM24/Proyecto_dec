@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_seccion
+    description: ""
+    columns:
+      - name: seccion
+        description: ""
+
+      - name: cliente
+        description: ""
+
+      - name: cantidad_total_vendida_por_seccion
+        description: ""
+
+      - name: importe_total_seccion
+        description: ""
