@@ -57,6 +57,11 @@ models:
        {%- endif -%}
      core:
        +schema: core
+     marca:
        +schema: marca
+     seccion: 
+       +schema: seccion
+     genero: 
+       +schema: genero
 
         

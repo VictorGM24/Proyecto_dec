@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_genero
+    description: ""
+    columns:
+      - name: genero
+        description: ""
+
+      - name: cliente
+        description: ""
+
+      - name: cantidad_total_vendida_por_genero
+        description: ""
+
+      - name: importe_total_genero
+        description: ""

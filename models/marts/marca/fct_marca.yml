@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_marca
+    description: ""
+    columns:
+      - name: marca
+        description: ""
+
+      - name: cliente
+        description: ""
+
+      - name: cantidad_total_vendida_por_marca
+        description: ""
+
+      - name: importe_total_marca
+        description: ""
